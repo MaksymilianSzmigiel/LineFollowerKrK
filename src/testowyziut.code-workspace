@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../testowyziut"
+		},
+		{
+			"name": "ziuttest",
+			"path": "../../ziuttest"
+		},
+		{
+			"name": "duap",
+			"path": "../../duap"
+		},
+		{
+			"name": "LF2",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
