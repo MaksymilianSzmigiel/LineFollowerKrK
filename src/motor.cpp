@@ -43,7 +43,7 @@ void Motor::setSensors()
   Serial.println("Calibrating...");
   for(int i = 0; i < 100; i++)
   {
-    qtr.calibrate();
+   qtr.calibrate();
     delay(10);
   }
 }
@@ -61,8 +61,8 @@ void Motor::updateSensors()
     
   }*/
   
-  Serial.print(linePosition);
+ Serial.print(linePosition);
   Serial.println();
-  delay(1000);  // Opóźnienie pomiędzy odczytami
+  delay(1000);// Opóźnienie pomiędzy odczytami
 
 }

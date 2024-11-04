@@ -14,8 +14,8 @@ class PrivateServer {
         String statePin16 = "off";
         String statePin17 = "off";
 
-        const int output16 = 16;
-        const int output17 = 17;
+        const int output16 = 26;
+        const int output17 = 27;
 
         unsigned long currentTime = millis();
         unsigned long previousTime = 0;
