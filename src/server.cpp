@@ -25,14 +25,15 @@ void PrivateServer::initialize()
 
 void PrivateServer::clients()
 {
-    WiFiClient client = server.available();
-    if(client) {
-        currentTime = millis();
-        previousTime = currentTime;
-        Serial.println("New Client.");
-        String currentLine = "";
+    WiFiClient client = server.available();   // Listen for incoming clients
 
-      while (client.connected() && currentTime - previousTime <= timeoutTime) {
+  if (client) {                             // If a new client connects,
+    currentTime = millis();
+    previousTime = currentTime;
+    Serial.println("New Client.");          // print a message out in the serial port
+    String currentLine = "";                // make a String to hold incoming data from the client
+
+    while (client.connected() && currentTime - previousTime <= timeoutTime) {
       // loop while the client's connected
       currentTime = millis();
       if (client.available()) {             // if there's bytes to read from the client,
@@ -52,18 +53,18 @@ void PrivateServer::clients()
 
             // turns the GPIOs on and off
             if (header.indexOf("GET /16/on") >= 0) {
-              output16State = "on";
+              statePin16 = "on";
               digitalWrite(output16, HIGH);               // turns the LED on
             } else if (header.indexOf("GET /16/off") >= 0) {
-              output16State = "off";
+              statePin16 = "off";
               digitalWrite(output16, LOW);                //turns the LED off
             }
             
             if (header.indexOf("GET /17/on") >= 0) {
-              output17State = "on";
+              statePin17 = "on";
               digitalWrite(output17, HIGH);               // turns the LED on
             } else if (header.indexOf("GET /17/off") >= 0) {
-              output17State = "off";
+              statePin17 = "off";
               digitalWrite(output17, LOW);                //turns the LED off
             }
 
@@ -80,12 +81,12 @@ void PrivateServer::clients()
             client.println("<body><h1>ESP32 Web Server</h1>");
             client.println("<p>Control LED State</p>");
 
-            if (output16State == "off") {
+            if (statePin16 == "off") {
               client.println("<p><a href=\"/16/on\"><button class=\"button\">ON</button></a></p>");
             } else {
               client.println("<p><a href=\"/16/off\"><button class=\"button button2\">OFF</button></a></p>");
             }
-            if (output17State == "off") {
+            if (statePin17 == "off") {
               client.println("<p><a href=\"/17/on\"><button class=\"button\">ON</button></a></p>");
             } else {
               client.println("<p><a href=\"/17/off\"><button class=\"button button2\">OFF</button></a></p>");
@@ -111,7 +112,4 @@ void PrivateServer::clients()
     Serial.println("Client disconnected.");
     Serial.println("");
   }
-    
-
-
 }

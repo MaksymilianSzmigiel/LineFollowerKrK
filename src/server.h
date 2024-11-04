@@ -11,11 +11,11 @@ class PrivateServer {
         
         String header;
 
-        String output16State = "off";
-        String output17State = "off";
+        String statePin16 = "off";
+        String statePin17 = "off";
 
-        const int output16 = 26;
-        const int output17 = 27;
+        const int output16 = 16;
+        const int output17 = 17;
 
         unsigned long currentTime = millis();
         unsigned long previousTime = 0;
