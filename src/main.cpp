@@ -1,26 +1,33 @@
 #include <QTRSensors.h>
 #include <Arduino.h>
+#include <WiFi.h>
+#include <server.h>
 
-QTRSensors qtr;
+//QTRSensors qtr;
 
-const uint8_t SensorCount = 8;
-const uint8_t sensorCount = 8;
+//const uint8_t SensorCount = 8;
+//const uint8_t sensorCount = 8;
 
-const uint8_t values[] = {23, 22, 21, 19, 5, 4, 2, 15};  // Piny czujników
+//const uint8_t values[] = {23, 22, 21, 19, 5, 4, 2, 15};  // Piny czujników
 
-uint16_t sensorValues[SensorCount];  // Przechowywanie odczytów z czujników
+//uint16_t sensorValues[SensorCount];  // Przechowywanie odczytów z czujników
+
+PrivateServer ser;
 
 void setup() {
   // Konfiguracja czujników
-  qtr.setTypeRC();
-  qtr.setSensorPins(values, sensorCount);
+ // qtr.setTypeRC();
+ // qtr.setSensorPins(values, sensorCount);
+ ser.initialize();
+ // Serial.begin(9600);
+ // delay(250);
+ // pinMode(14, OUTPUT);
 
-  Serial.begin(9600);
-  delay(250);
-  pinMode(9, OUTPUT);
 }
 
 void loop() {
+
+  ser.clients();
   // Odczyt danych z czujników
 /*  qtr.read(sensorValues, QTRReadMode::On);
 
@@ -36,8 +43,5 @@ void loop() {
   Serial.println();
   delay(1000);  // Opóźnienie pomiędzy odczytami
   */
- digitalWrite(9, HIGH);
- delay(1000);
-  digitalWrite(9, LOW);
-delay(1000);
+ 
 }
