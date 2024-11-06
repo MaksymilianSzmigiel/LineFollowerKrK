@@ -12,9 +12,12 @@ void initialize();
 void setSensors();
 void updateSensors();
 void updateError();
-private:
+const int AIN1 = 21;
+const int BIN1 = 33;
+const int AIN2 = 14;
+const int BIN2 = 32;
 
-
+String motorState;
 
 int KP = 1;
 int KD = 1;
@@ -23,12 +26,15 @@ int previousError = 0;
 
 const int M1 = 50;
 const int M2 = 50;
-const int A_PWM = 34;
-const int B_PWM = 35;
-const int AIN1 = 12;
-const int AIN2 = 14;
-const int BIN1 = 33;
-const int BIN2 = 32;
+const int A_PWM = 27;
+const int B_PWM = 13;
+
+private:
+
+
+
+
+
 
 
 };

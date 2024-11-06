@@ -15,6 +15,10 @@ void Motor::initialize()
 {
     pinMode(A_PWM, OUTPUT);
     pinMode(B_PWM, OUTPUT);
+    pinMode(AIN1,OUTPUT);
+    pinMode(BIN1,OUTPUT);
+    pinMode(AIN2,OUTPUT);
+    pinMode(BIN2,OUTPUT);
 }
 
 void Motor::setMotors()
