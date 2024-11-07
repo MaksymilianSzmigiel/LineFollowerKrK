@@ -31,9 +31,8 @@ void Motor::setMotors()
   int Mright = M2 - motorSpeed;
 
   analogWrite(A_PWM, Mleft);
-  analogWrite(A_PWM, Mright);
+  analogWrite(B_PWM, Mright);
   
-
 }
 
 void Motor::setSensors() 
@@ -55,6 +54,8 @@ void Motor::setSensors()
 void Motor::updateSensors()
 {
   unsigned int linePosition = qtr.readLineBlack(sensorValues, QTRReadMode::On);
+
+  error = linePosition - 3500;
 
  /*  for (uint8_t i = 0; i < sensorCount; i++) {
     Serial.print("Sensor ");

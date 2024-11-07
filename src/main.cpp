@@ -37,21 +37,14 @@ void setup() {
 //   ledcWrite(pwmChannelA,120);
 //   ledcWrite(pwmChannelB,120);
 //   //ledcWrite(pwmChannelC,70);
- analogWrite(motor.A_PWM,120);
-analogWrite(motor.B_PWM,120);
-
-
-
-
-
 
 }
 
 void loop() {
-analogWrite(motor.A_PWM,120);
-analogWrite(motor.B_PWM,120);
+  motor.updateSensors();
+  motor.setMotors();
   delay(100);
  // ser.clients();
   // Update sensor readings
- // motor.updateSensors();
+
 }
