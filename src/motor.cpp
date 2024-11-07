@@ -73,19 +73,28 @@ void Motor::updateSensors()
   float motorSpeed = KP * error - KD * (error - previousError);
   previousError = error;
 
+
   if(motorSpeed > 0)
   {
-    int Mleft = (M1 - motorSpeed/5)/2;
-    int Mright = M1 + motorSpeed/5;
+    int Mleft = (M1 - motorSpeed/2)*(M1/M2);
+    int Mright = M1 + motorSpeed/2;
     analogWrite(A_PWM, Mleft);
     analogWrite(B_PWM, Mright);
   }
   if(motorSpeed < 0)
   {
-    int Mleft = (M1 + motorSpeed/5)/2;
-    int Mright = M1 - motorSpeed/5;
+    int Mleft = (M1 + motorSpeed/2)*(M1/M2);
+    int Mright = M1 - motorSpeed/2;
     analogWrite(A_PWM, Mleft);
     analogWrite(B_PWM, Mright);
+  }
+  if(motorSpeed == 0)
+  {
+    int Mleft = M1;
+    int Mright = M2;
+    analogWrite(A_PWM, Mleft);
+    analogWrite(B_PWM, Mright);
+
   }
 
 
