@@ -19,8 +19,8 @@ const int BIN2 = 33;
 
 String motorState;
 
-int KP = 0.05;
-int KD = 0.01;
+int KP = 0.055;
+int KD = 0.45;
 int error = 0;
 int previousError = 0;
 

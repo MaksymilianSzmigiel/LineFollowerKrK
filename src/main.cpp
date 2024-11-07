@@ -20,10 +20,10 @@ void setup() {
   motor.initialize();
   ser.initialize();
   motor.setSensors();
- digitalWrite(motor.AIN1,LOW);
- digitalWrite(motor.BIN1,LOW);
+  digitalWrite(motor.AIN1,LOW);
+  digitalWrite(motor.BIN1,LOW);
   digitalWrite(motor.AIN2,HIGH);
-   digitalWrite(motor.BIN2,HIGH);
+  digitalWrite(motor.BIN2,HIGH);
 
 //    ledcSetup(pwmChannelA,pwmFreq, pwmResolution);
 //    ledcSetup(pwmChannelB,pwmFreq, pwmResolution);
