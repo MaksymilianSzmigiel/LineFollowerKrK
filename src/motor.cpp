@@ -37,7 +37,7 @@ void Motor::setMotors()
 
 void Motor::setSensors() 
 {
- qtr.setTypeRC();
+  qtr.setTypeRC();
   qtr.setSensorPins(values, sensorCount);
 
   Serial.begin(115200);
@@ -46,8 +46,8 @@ void Motor::setSensors()
   Serial.println("Calibrating...");
   for(int i = 0; i < 100; i++)
   {
-   qtr.calibrate();
-    delay(10);
+    qtr.calibrate();
+    delay(50);
   }
 }
 
@@ -66,7 +66,7 @@ void Motor::updateSensors()
     
   }*/
   
- Serial.print(linePosition);
+  Serial.print(linePosition);
   Serial.println();
   delay(1000);// Opóźnienie pomiędzy odczytami
 

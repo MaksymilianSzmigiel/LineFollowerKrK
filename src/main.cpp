@@ -43,7 +43,7 @@ void setup() {
 void loop() {
   motor.updateSensors();
   motor.setMotors();
-  delay(100);
+  delay(50);
  // ser.clients();
   // Update sensor readings
 
