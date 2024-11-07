@@ -8,7 +8,7 @@ Motor motor;
 PrivateServer ser;
 
 // Define PWM parameters
-const int pwmFreq = 10000;       // Frequency of 5 kHz
+const int pwmFreq = 5000;       // Frequency of 5 kHz
 const int pwmResolution = 8;    // 8-bit resolution (values range from 0 to 255)
 const int pwmChannelA = 7;      // PWM channel for motor A
 const int pwmChannelB = 6;      // PWM channel for motor B
@@ -22,20 +22,20 @@ void setup() {
   motor.setSensors();
   digitalWrite(motor.AIN1,HIGH);
   digitalWrite(motor.BIN1,HIGH);
- //digitalWrite(motor.AIN2,LOW);
- // digitalWrite(motor.BIN2,LOW);
+ digitalWrite(motor.AIN2,LOW);
+  digitalWrite(motor.BIN2,LOW);
 
    ledcSetup(pwmChannelA,pwmFreq, pwmResolution);
-  // ledcSetup(pwmChannelB,pwmFreq, pwmResolution);
+   ledcSetup(pwmChannelB,pwmFreq, pwmResolution);
   // ledcSetup(pwmChannelC,pwmFreq,pwmResolution);
    
   // Przypisanie kanału PWM do pinu
  // ledcAttachPin(motor.B_PWM,pwmChannelB);
   ledcAttachPin(motor.A_PWM, pwmChannelA);
- // ledcAttachPin(pin2,pwmChannelC);
+  ledcAttachPin(pin2,pwmChannelC);
 
-  ledcWrite(pwmChannelA,70);
-  //ledcWrite(pwmChannelB,70);
+  ledcWrite(pwmChannelA,120);
+  ledcWrite(pwmChannelB,120);
   //ledcWrite(pwmChannelC,70);
 
 
