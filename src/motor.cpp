@@ -73,11 +73,28 @@ void Motor::updateSensors()
   float motorSpeed = KP * error - KD * (error - previousError);
   previousError = error;
 
+  if(motorSpeed > 200)
+  {
+    int Mright = 255;
+    int Mleft = M1 - (motorSpeed/10) * (M1/M2);
+    analogWrite(A_PWM, Mleft);
+    analogWrite(B_PWM, Mright);   
+  }
 
-  int Mleft = M1 - (motorSpeed/10)*(M1/M2);
-  int Mright = M2 + motorSpeed/10;
-  analogWrite(A_PWM, Mleft);
-  analogWrite(B_PWM, Mright);
+  else if(motorSpeed < -200)
+  {
+    int Mright = M1 + (motorSpeed/10) * (M2/M1);
+    int Mleft = 255;
+    analogWrite(A_PWM, Mleft);
+    analogWrite(B_PWM, Mright);
+  }
+  else
+  {
+    int Mleft = M1 - (motorSpeed/10) * (M1/M2);
+    int Mright = M2 + (motorSpeed/10) * (M2/M1);
+    analogWrite(A_PWM, Mleft);
+    analogWrite(B_PWM, Mright);
+  }
   
 
   // if(motorSpeed == 0)
@@ -105,6 +122,6 @@ void Motor::updateSensors()
   
   //Serial.print(linePosition);
   Serial.println();
-  delay(50);// Opóźnienie pomiędzy odczytami
+  delay(20);// Opóźnienie pomiędzy odczytami
 
 }
