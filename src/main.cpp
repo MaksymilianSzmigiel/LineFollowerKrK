@@ -7,14 +7,6 @@
 Motor motor;
 PrivateServer ser;
 
-// Define PWM parameters
-const int pwmFreq = 1000;       // Frequency of 5 kHz
-const int pwmResolution = 8;    // 8-bit resolution (values range from 0 to 255)
-const int pwmChannelA = 7;      // PWM channel for motor A
-const int pwmChannelB = 6;      // PWM channel for motor B
-const int pwmDutyCycle = 30;    // Duty cycle as a percentage (0-255 for 8-bit resolution)
-const int pin2 = 2;
-const int pwmChannelC = 2;
 void setup() {
   // Configure the server and motor
   motor.initialize();
@@ -43,7 +35,7 @@ void setup() {
 void loop() {
   motor.updateSensors();
  // motor.setMotors();
-  delay(50);
+  delay(100);
  // ser.clients();
   // Update sensor readings
 
