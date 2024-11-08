@@ -20,7 +20,7 @@ const int BIN2 = 33;
 String motorState;
 
 float KP = 0.15;
-float KD = 0.03;
+float KD = 0.07;
 int error = 0;
 int previousError = 0;
 
@@ -30,11 +30,5 @@ const int A_PWM = 13;
 const int B_PWM = 27;
 
 private:
-
-
-
-
-
-
 
 };
