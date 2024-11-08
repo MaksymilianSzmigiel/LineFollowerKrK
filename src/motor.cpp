@@ -105,6 +105,6 @@ void Motor::updateSensors()
   
   //Serial.print(linePosition);
   Serial.println();
-  delay(100);// Opóźnienie pomiędzy odczytami
+  delay(50);// Opóźnienie pomiędzy odczytami
 
 }
