@@ -24,8 +24,8 @@ float KD = 0.07;
 int error = 0;
 int previousError = 0;
 
-const int M1 = 85;
-const int M2 = 100;
+const int M1 = 127;
+const int M2 = 150;
 const int A_PWM = 13;
 const int B_PWM = 27;
 
