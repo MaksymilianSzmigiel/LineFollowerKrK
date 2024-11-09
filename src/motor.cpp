@@ -71,10 +71,10 @@ void Motor::updateSensors()
   float motorSpeed = KP * error - KD * (error - previousError);
   previousError = error;
 
-  if(motorSpeed > 500)
+  if(motorSpeed >1000)
   {
-    int Mright = M2;
-    int Mleft = M1;
+    int Mright = 63;
+    int Mleft = 75;
     digitalWrite(AIN1,HIGH);
     digitalWrite(BIN1,LOW);
     digitalWrite(AIN2,LOW);
@@ -83,10 +83,10 @@ void Motor::updateSensors()
     analogWrite(B_PWM, Mright);   
   }
 
-  else if(motorSpeed < -500)
+  else if(motorSpeed < -1000)
   {
-    int Mright = M2;
-    int Mleft = M1;
+    int Mright = 63;
+    int Mleft = 75;
     digitalWrite(AIN1,LOW);
     digitalWrite(BIN1,HIGH);
     digitalWrite(AIN2,HIGH);
