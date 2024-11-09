@@ -68,25 +68,25 @@ void Motor::updateSensors()
   Serial.print(linePosition);
   Serial.println();
 
-  float motorSpeed = KP * error - KD * (error - previousError);
+  float motorSpeed = KP * error + KD * (error - previousError);
   previousError = error;
 
-  if(motorSpeed >1000)
+ if(motorSpeed >1200)
   {
-    int Mright = 63;
-    int Mleft = 75;
+    int Mright = 55;
+    int Mleft = 65;
     digitalWrite(AIN1,HIGH);
     digitalWrite(BIN1,LOW);
     digitalWrite(AIN2,LOW);
     digitalWrite(BIN2,HIGH);
     analogWrite(A_PWM, Mleft);
-    analogWrite(B_PWM, Mright);   
+    analogWrite(B_PWM, Mright);                                                                                                                                                                                                                                                                                                
   }
 
-  else if(motorSpeed < -1000)
+  else if(motorSpeed < -1200)
   {
-    int Mright = 63;
-    int Mleft = 75;
+    int Mright = 55;
+    int Mleft = 65;
     digitalWrite(AIN1,LOW);
     digitalWrite(BIN1,HIGH);
     digitalWrite(AIN2,HIGH);
@@ -94,10 +94,37 @@ void Motor::updateSensors()
     analogWrite(A_PWM, Mleft);
     analogWrite(B_PWM, Mright);
   }
+  // else if((motorSpeed < 1200 && motorSpeed > 800) || (motorSpeed > -1200 && motorSpeed < -800))
+  // {
+  //   int Mleft = (motorSpeed/6) * (M3/M4);
+  //   int Mright = (motorSpeed/6) * (M4/M3);
+  //   if(Mleft > 255)
+  //     Mleft = 255;
+  //   if(Mright > 255)
+  //     Mright = 255;
+  //   if(Mleft < 0)
+  //     Mleft = 0;
+  //   if(Mright < 0)
+  //     Mright = 0;
+  //   digitalWrite(AIN1,LOW);
+  //   digitalWrite(BIN1,LOW);
+  //   digitalWrite(AIN2,HIGH);
+  //   digitalWrite(BIN2,HIGH);
+  //   analogWrite(A_PWM, Mleft);
+  //   analogWrite(B_PWM, Mright);
+  // }
   else
   {
     int Mleft = M1 - (motorSpeed/10) * (M1/M2);
     int Mright = M2 + (motorSpeed/10) * (M2/M1);
+    if(Mleft > 255)
+      Mleft = 255;
+    if(Mright > 255)
+      Mright = 255;
+    if(Mleft < 0)
+      Mleft = 0;
+    if(Mright < 0)
+      Mright = 0;
     digitalWrite(AIN1,LOW);
     digitalWrite(BIN1,LOW);
     digitalWrite(AIN2,HIGH);
@@ -105,7 +132,6 @@ void Motor::updateSensors()
     analogWrite(A_PWM, Mleft);
     analogWrite(B_PWM, Mright);
   }
-  
 
   // if(motorSpeed == 0)
   // {

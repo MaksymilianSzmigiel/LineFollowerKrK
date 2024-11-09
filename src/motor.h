@@ -19,13 +19,15 @@ const int BIN2 = 33;
 
 String motorState;
 
-float KP = 0.38;
-float KD = 0.0154;
+float KP = 0.42;
+float KD = 0.02;
 int error = 0;
 int previousError = 0;
 
-const int M1 = 127;
-const int M2 = 150;
+const int M1 = 106;
+const int M2 = 125;
+const int M3 = 42;
+const int M4 = 50;
 const int A_PWM = 13;
 const int B_PWM = 27;
 
