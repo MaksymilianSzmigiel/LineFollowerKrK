@@ -81,13 +81,20 @@ void Motor::updateSensors()
       Mleft = 255;
     if(Mright > 255)
       Mright = 255;
+    
+      if(Mleft < 0)
+        Mleft = 0;
+      if(Mright < 0)
+        Mright = 0;    
+
     if(Mleft >= 0 && Mright >= 0)
     {
       digitalWrite(AIN1,LOW);
       digitalWrite(BIN1,LOW);
       digitalWrite(AIN2,HIGH);
       digitalWrite(BIN2,HIGH);
-    }   
+    }  
+    /*
     if(Mleft < 0)
     {
       Mleft = abs(Mleft);
@@ -108,6 +115,7 @@ void Motor::updateSensors()
       digitalWrite(BIN1, HIGH);
       digitalWrite(BIN2, LOW);
     } 
+    */
     analogWrite(A_PWM, Mleft);
     analogWrite(B_PWM, Mright);
 
