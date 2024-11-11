@@ -19,8 +19,8 @@ const int BIN2 = 33;
 
 String motorState;
 
-float KP = 0.8;
-float KD = 0.5;
+float KP = 0.08;
+float KD = 0.35;
 int error = 0;
 int previousError = 0;
 

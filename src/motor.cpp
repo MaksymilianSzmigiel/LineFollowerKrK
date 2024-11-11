@@ -75,8 +75,8 @@ void Motor::updateSensors()
 
   float percentError = (delta/maxError);
 
-    int Mleft = M1 - percentError * 255 * (M1/M2);
-    int Mright = M2 + percentError * 255 * (M2/M1);
+    int Mleft = M1 - percentError * 510 * (M1/M2);
+    int Mright = M2 + percentError * 510 * (M2/M1);
     if(Mleft > 255)
       Mleft = 255;
     if(Mright > 255)
@@ -86,7 +86,7 @@ void Motor::updateSensors()
         Mleft = 0;
       if(Mright < 0)
         Mright = 0;    
-
+    
     if(Mleft >= 0 && Mright >= 0)
     {
       digitalWrite(AIN1,LOW);
