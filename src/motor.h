@@ -12,10 +12,12 @@ void initialize();
 void setSensors();
 void updateSensors();
 void updateError();
+void stopMotors();
 const int AIN1 = 21;
 const int BIN1 = 32;
 const int AIN2 = 14;
 const int BIN2 = 33;
+bool sensor_enabled = false;
 
 String motorState;
 

@@ -33,10 +33,15 @@ void setup() {
 }
 
 void loop() {
-  motor.updateSensors();
+  
  // motor.setMotors();
   
- // ser.clients();
+  ser.clients();
+  
+  motor.sensor_enabled = ser.sensorsEnabled;
+  motor.updateSensors();
+  
+  
   // Update sensor readings
 
 }

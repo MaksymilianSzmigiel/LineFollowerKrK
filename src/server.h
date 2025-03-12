@@ -5,6 +5,7 @@ class PrivateServer {
     public:
        void initialize();
        void clients();
+       bool sensorsEnabled = false;
     private:
         const char* ssid = "MaksESP32";
         const char* password = "nigga2137";
